@@ -1,0 +1,24 @@
+<h2>All Pins</h2>
+
+<% @pins.each do |p|%>
+  <div>
+    <p>
+      <%= p.title%>
+    </p>
+    <p>
+      <%= p.image%>
+    </p>
+    <p>
+      <%= p.url%>
+    </p>
+    <p>
+      <%= p.comment%>
+    </p>
+
+    <p>
+    <!-- What is after the comma -->
+      <%= link_to "Edit", edit_pin_path(p) %>
+      <%= link_to "Destroy", pin_path(p), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+  </div>
+<%end%>

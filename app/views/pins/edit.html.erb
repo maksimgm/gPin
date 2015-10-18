@@ -1,0 +1,18 @@
+<h2>Edit Pin</h2>
+
+<%= form_for @pin do |p|%>
+  <p>
+    <%= p.label :title%>:
+    <%= p.text_field :title%></p>
+  <p>
+  <p>
+    <%= p.label :url%>:
+    <%= p.text_field :url%></p>
+  <p>
+    <%= p.label :comment%>
+    <%= p.text_field :comment%></p>
+  <p>
+    <%= p.label :image%>
+    <%= p.text_field :image%></p>
+  <p><%= p.submit%></p>
+<%end%>
