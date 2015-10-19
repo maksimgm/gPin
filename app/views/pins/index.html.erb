@@ -1,24 +1,28 @@
-<h2>All Pins</h2>
-
+<h2 class="text-center">All Pins</h2>
+<!-- link to add new pin -->
 <% @pins.each do |p|%>
-  <div>
-    <p>
-      <%= p.title%>
-    </p>
-    <p>
-      <%= p.image%>
-    </p>
-    <p>
-      <%= p.url%>
-    </p>
-    <p>
-      <%= p.comment%>
-    </p>
-
-    <p>
+  <div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <div class="thumbnail">
+      <h3 class="text-center"><%= p.title%></h3>
+      <img src="<%= p.image%>" alt="">
+    <div class="caption">
+      <p>
+          <a href="<%= p.url%>">URL</a> 
+      </p>
+      <p>
+        <h5>Comment:</h5> 
+          <p><%= p.comment%></p>
+      </p>
+      <p>
     <!-- What is after the comma -->
-      <%= link_to "Edit", edit_pin_path(p) %>
-      <%= link_to "Destroy", pin_path(p), method: :delete, data: { confirm: 'Are you sure?' } %>
-    </p>
+      <!-- Why does `show_pin_path(p)` not work?-->
+        <span class="btn btn-primary"> <%= link_to "Show", pin_path(p)%></span>
+        <span class="btn btn-success"><%= link_to "Edit", edit_pin_path(p) %></span>
+        <span class="btn btn-danger"><%= link_to "Destroy", pin_path(p), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+      </p>
+    </div>
+    </div>
   </div>
+</div>
 <%end%>

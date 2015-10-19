@@ -1,16 +1,21 @@
-<%= form_for @pin do |p|%>
-  <p>
-  <%= p.label :title%>:
-  <%= p.text_field :title%></p>
-  <p>
-  <p>
-  <%= p.label :url%>:
-  <%= p.text_field :url%></p>
-  <p>
-  <%= p.label :comment%>
-  <%= p.text_field :comment%></p>
-  <p>
-  <%= p.label :image%>
-  <%= p.text_field :image%></p>
-  <p><%= p.submit%></p>
-<%end%>
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <div class="thumbnail">
+      <h3 class="text-center"><%= @pin.title%></h3>
+      <img src="<%= @pin.image%>" alt="">
+    <div class="caption">
+      <p>
+          <a href="<%= @pin.url%>">URL</a> 
+      </p>
+      <p>
+        <h5>Comment:</h5> 
+          <p><%= @pin.comment%></p>
+      </p>
+      <p>
+        <span class="btn btn-success"><%= link_to "Edit", edit_pin_path(@pin) %></span>
+        <span class="btn btn-danger"><%= link_to "Destroy", pin_path(@pin), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+      </p>
+    </div>
+    </div>
+  </div>
+</div>

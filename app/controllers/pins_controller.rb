@@ -40,16 +40,12 @@ class PinsController < ApplicationController
 
   def destroy
     @pin = Pin.find params[:id]
-    
     @pin.destroy
       redirect_to '/pins'    
-    
   end
 
   private
-
     def pin_params
       params.require(:pin).permit(:title, :url, :comment, :image)
     end
-
 end

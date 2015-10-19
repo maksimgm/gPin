@@ -1,18 +1,40 @@
-<h2>Edit Pin</h2>
+<h2 class="text-center">Edit Pin</h2>
+ 
+<%= form_for @pin, {:class => "form-horizontal center"} do |p|%>
+ <div class="container">
+   <div class="col-xs-10 col-xs-offset-1">
+     
+      <div class="form-group">
+        <%= p.label :title, class: "col-xs-4 control-label" %>
+        <div class="col-xs-8">
+          <%= p.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <%= p.label :url, class: "col-xs-4 control-label" %>
+        <div class="col-xs-8">
+          <%= p.text_field :url, class: "form-control" %>
+        </div>
+      </div>
 
-<%= form_for @pin do |p|%>
-  <p>
-    <%= p.label :title%>:
-    <%= p.text_field :title%></p>
-  <p>
-  <p>
-    <%= p.label :url%>:
-    <%= p.text_field :url%></p>
-  <p>
-    <%= p.label :comment%>
-    <%= p.text_field :comment%></p>
-  <p>
-    <%= p.label :image%>
-    <%= p.text_field :image%></p>
-  <p><%= p.submit%></p>
+      <div class="form-group">
+        <%= p.label :comment, for: "comment" ,class: "col-xs-4 control-label" %>
+        <div class="col-xs-8">
+          <%= p.text_area :comment, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= p.label :image, class: "col-xs-4 control-label" %>
+        <div class="col-xs-8">
+          <%= p.text_field :image, class: "form-control" %>
+        </div>
+      </div>
+      <div>
+        <%= p.submit :Update, class: " col-xs-6 btn btn-success btn-block" %>
+      </div>
+    </div>
+  </div>
 <%end%>
+
