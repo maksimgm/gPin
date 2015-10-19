@@ -1,6 +1,6 @@
-class PinsController < ApplicationController
+class PinsController < ApplicationController  
   def index
-    @pins = Pin.all
+    @pins = Pin.all.order(:id)
     render :index
   end
 
@@ -13,9 +13,10 @@ class PinsController < ApplicationController
     # redirect_to '/pins'
 
     if @pin.save
-      redirect_to '/pins'    
+      redirect_to '/', flash: {success: "Nice!"}
     else
-      render :new      
+      render :new
+      # binding.pry
     end
 
   end
@@ -30,22 +31,24 @@ class PinsController < ApplicationController
 
   def update
     @pin = Pin.find (params[:id])
+    
     @pin.update(pin_params)
-    if @pin.save
-      redirect_to '/pins'    
+    if @pin.update(pin_params)
+      redirect_to '/', flash: {success: "Nice!"}
     else
-      render :update      
+      render :edit
     end    
   end
 
   def destroy
     @pin = Pin.find params[:id]
     @pin.destroy
-      redirect_to '/pins'    
+      redirect_to '/', flash: {alert: "Successfully Deleted!"}
   end
 
   private
     def pin_params
+      # only allows the user to edit these parameters
       params.require(:pin).permit(:title, :url, :comment, :image)
     end
 end

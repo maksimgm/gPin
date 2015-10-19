@@ -1,0 +1,14 @@
+// Example using bootswatch
+//
+// First import  variables
+@import "bootswatch/Superhero/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// And finally bootswatch style itself
+@import "bootswatch/Superhero/bootswatch";
+
+// If you want to import your own styles just use 
+
+@import "pins";
